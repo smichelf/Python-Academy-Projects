@@ -23,11 +23,15 @@ while not konec:
         cows = 0
         obulls = 'bulls'
         ocows = 'cows'
-        ucislo = list(input('Enter a number (0 to finish): '))
-        steps += 1
-        if ucislo[0] == '0':
+        uscislo = input('Enter a number (0 to finish): ')
+        if uscislo[0] == '0':
             konec = True
             break
+        if len(uscislo) != 4 or not uscislo.isnumeric():
+            print('Input is not numeric or not 4 digits long.')
+            continue
+        ucislo=list(uscislo)
+        steps += 1
 #
 # count bulls and cows
 #
