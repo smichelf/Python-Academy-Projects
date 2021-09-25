@@ -29,13 +29,11 @@ def count_result(unumber, pnumber):
 
 def user_guessing(pnum):
     result = {'bulls': 0, 'cows': 0}
-    global konec
     steps = 0
     while result['bulls'] < 4:
         uscislo = input('Enter a number (0 to finish): ')
         if uscislo[0] == '0':
-            konec = True
-            break
+            return True
         if len(set(uscislo)) != 4 or not uscislo.isnumeric():
             print('Input is not numeric, contain duplicity or is not 4 digits long.')
             continue
@@ -52,8 +50,7 @@ oddelovac='-' * 48
 konec = False
 #
 welcome_gamer()
-while not konec:
+while not konec:            # v extremu ... while not user_guessing(generate_number()):
     pcislo = generate_number()
-    user_guessing(pcislo)
-else:
-    print('Good bye player, see you soon again.')
+    konec = user_guessing(pcislo)
+print('Good bye player, see you soon again.')
